@@ -1,0 +1,37 @@
+<div>
+ 
+  <div class="flex justify-between text-white bg-[#3167A8] py-6 px-3 w-full m-0 mb-3">
+    <span class="material-symbols-outlined">
+     <%= link_to "arrow_back", root_path %>
+    </span>
+    <h2>REGISTER</h2>
+    <h3><%= link_to "Next", new_user_session_path%></h3>
+  </div>
+  
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
+ 
+<div class="field">
+  <%= f.text_field :name, autofocus: true, autocomplete: "email", placeholder: 'Full name', class: 'border-none' %>
+</div>
+
+<div class="field">
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'border-none' %>
+</div>
+
+<div class="field">
+  <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Passoword', class: 'border-none' %>
+</div>
+
+<div class="field">
+  <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm password', class: 'border-none' %>
+</div>
+
+<div class="actions flex justify-center text-center bg-green-500 hover:bg-green-600 text-white py-2 px-4 m-3 rounded-lg">
+  <%= f.submit "Sign up" %>
+</div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+</div>

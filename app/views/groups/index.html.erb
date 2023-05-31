@@ -1,0 +1,15 @@
+<div>
+    <h1>Categories</h1>
+    <% if @groups.empty? %>
+        <p>No categories yet.</p>
+    <% else %>
+       <% @groups.each do |group| %>
+            <div class="flex gap-3 items-center">
+                <img class="w-16 h-16 mr-2" src='<%= group.icon %>' alt="group icon"> 
+                <h2><%= group.name %></h2> 
+            </div>
+        <% end %>
+    <% end %>
+
+    <%= link_to 'New Category', new_group_path %>
+</div>
