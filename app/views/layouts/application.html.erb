@@ -9,11 +9,25 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container flex flex-col">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <% if current_user %>
+          <%= button_to(
+            "Log Out",
+            destroy_user_session_path,
+            method: :delete,
+            class: 'self-end text-white bg-red-600 p-2 rounded-sm'
+          ) %>
+      <%end%>    
+      
       <%= yield %>
+      
     </main>
   </body>
 </html>
