@@ -4,7 +4,6 @@ RSpec.describe Group, type: :system do
   let(:user) { User.new(name: 'Biruk', email: 'biruk@example.com', password: 'password123') }
   subject { Group.new(user_id: user.id, name: 'Food', icon: 'https://image.png') }
 
-
   before do
     ActionMailer::Base.deliveries.clear
     user.save
