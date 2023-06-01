@@ -24,6 +24,10 @@
 }
 
 .field {
-  /* width: 100%; */
-  border: 1px solid #ccc;
+  border: 1px solid #222222;
+}
+
+form input {
+  width: 100%;
+  padding-left: 24px;
 }
