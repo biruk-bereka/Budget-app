@@ -1,7 +1,8 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
+  
   def index
-    @groups = Group.all
+   @groups = Group.includes(entity_groups: :entity).where(user: current_user)
   end
 
   def new
@@ -10,6 +11,9 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
+
+    authorize! :create, @group
+
     if @group.save
       redirect_to groups_path
     else
