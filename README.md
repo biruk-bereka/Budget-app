@@ -59,6 +59,8 @@
 - **Authorization**
 - **Authentication**
 - **MVC**
+- **Deployed on render**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -124,8 +126,7 @@ rspec spec
 
 
 ### Deployment
-
-This project is not deployed
+  - [CashTrack](https://cashtrack-wsxf.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,7 +140,6 @@ This project is not deployed
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
-- **Deploy**
 - **Make improvements with feedbacks**  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
