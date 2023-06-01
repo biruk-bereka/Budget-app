@@ -1,6 +1,12 @@
 <div class="bg-[#F1F3F2] flex flex-col h-screen justify-between">
   <div>
-    <%= render 'nav' %> <% if @entities.empty? %>
+    <%= render 'nav' %> 
+    <% if flash[:notice] %>
+    <div class="hide bg-green-500 p-4 text-white text-center">
+      <p><%= flash[:notice] %></p>
+    </div>
+    <% end %>
+    <% if @entities.empty? %>
     <div class="mt-10 text-center">
        <p class="text-red-700 text-3xl">NO TRANSACTIONS YET!</p>
     </div>
@@ -23,7 +29,9 @@
 
   <div class="bg-[#60B625] p-6 mt-auto">
     <div class="text-center border p-4 text-white">
+      <button>
       <%= link_to 'ADD NEW TRANSACTION', new_group_entity_path(@group.id), class: 'text-3xl'%>
+      </button>
     </div>
   </div>
 </div>

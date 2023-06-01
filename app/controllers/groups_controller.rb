@@ -15,9 +15,11 @@ class GroupsController < ApplicationController
     authorize! :create, @group
 
     if @group.save
+      flash[:notice] = 'Category created successfully'
       redirect_to groups_path
     else
-      render 'new'
+      flash[:alert] = @group.errors.full_messages.join(', ')
+      redirect_to new_group_path
     end
   end
 

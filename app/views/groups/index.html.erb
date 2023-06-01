@@ -11,6 +11,11 @@
         <%= button_to "LOG OUT", destroy_user_session_path, method: :delete %>
       </h3>
     </div>
+    <% if flash[:notice] %>
+    <div class="hide bg-green-500 p-4 text-white text-center">
+      <p><%= flash[:notice] %></p>
+    </div>
+    <% end %>
     <% if @groups.empty? %>
     <div class="mt-10 text-center">
       <p class="text-red-700 text-3xl">NO CATEGORIES YET!</p>
@@ -35,7 +40,9 @@
   </div>
   <div class="bg-[#60B625] p-6 mt-3">
     <div class="text-center border p-4 text-white">
-      <%= link_to 'ADD NEW CATEGORY', new_group_path, class: 'text-3xl' %>
+      <button>
+        <%= link_to 'ADD NEW CATEGORY', new_group_path, class: 'text-3xl' %>
+      </button>
     </div>
   </div>
 </div>
