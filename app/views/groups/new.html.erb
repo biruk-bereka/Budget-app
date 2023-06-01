@@ -2,6 +2,11 @@
    <%= render 'nav' %>
    <div class="flex-grow">
      <div class="flex flex-col justify-start w-full h-full">
+      <% if flash[:alert] %>
+        <div class="hide bg-red-500 p-4 text-white text-center">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
        <%= form_with model: @group, url: groups_path do |form| %>
          <div class="mt-8">
            <%= form.text_field :name, name: "group[name]", class: "mx-3 mt-1 p-4 border rounded-md w-4/5", placeholder: 'name' %>

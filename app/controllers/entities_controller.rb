@@ -18,9 +18,11 @@ class EntitiesController < ApplicationController
     authorize! :create, @entity
 
     if @entity.save
+      flash[:notice] = 'Transaction created successfully'
       redirect_to group_entities_path
     else
-      render 'new'
+      flash[:alert] = @entity.errors.full_messages.join(', ')
+      redirect_to new_group_entity_path(@group.id)
     end
   end
 
