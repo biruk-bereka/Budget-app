@@ -1,0 +1,29 @@
+<div class="bg-[#F1F3F2] flex flex-col h-screen justify-between">
+  <div>
+    <%= render 'nav' %> <% if @entities.empty? %>
+    <div class="mt-10 text-center">
+       <p class="text-red-700 text-3xl">NO TRANSACTIONS YET!</p>
+    </div>
+    <% else %> <% @entities.each do |entity| %>
+    <div class="bg-white flex justify-between items-center my-3 mx-3 py-4 px-4">
+      <div class="flex">
+        <img class="w-16 h-16 mr-2" src="<%= @group.icon %>" alt="group icon" />
+        <div class="flex flex-col justify-around text-slate-400">
+          <h2>
+            <%= link_to entity.name, group_entity_path(@group.id, entity.id)%>
+          </h2>
+          <p><%= entity.created_at.strftime('%d %b %Y') %></p>
+        </div>
+      </div>
+
+      <p class="font-bold text-2xl">$<%=entity.amount %></p>
+    </div>
+    <% end %> <% end %>
+  </div>
+
+  <div class="bg-[#60B625] p-6 mt-auto">
+    <div class="text-center border p-4 text-white">
+      <%= link_to 'ADD NEW TRANSACTION', new_group_entity_path(@group.id), class: 'text-3xl'%>
+    </div>
+  </div>
+</div>
