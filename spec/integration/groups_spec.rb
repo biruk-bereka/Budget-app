@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :system do
-    let(:user) { User.new(name: 'Biruk', email: 'biruk@example.com', password: 'password123') }
-    subject { Group.new(user_id: user.id, name: 'Food', icon: 'https://image.png') }
- 
+  let(:user) { User.new(name: 'Biruk', email: 'biruk@example.com', password: 'password123') }
+  subject { Group.new(user_id: user.id, name: 'Food', icon: 'https://image.png') }
+
 
   before do
     ActionMailer::Base.deliveries.clear
     user.save
     subject.save
   end
-  
-  # CATEGORIES INDEX PAGE 
+
+  # CATEGORIES INDEX PAGE
   it 'show the categories list' do
     visit new_user_registration_path
     # Fill in the sign-in form with valid user credentials
@@ -36,7 +36,7 @@ RSpec.describe Group, type: :system do
     visit groups_path
     expect(page).to have_content(subject.name)
   end
-  
+
   it 'Add a new category' do
     visit new_user_registration_path
     # Fill in the sign-in form with valid user credentials

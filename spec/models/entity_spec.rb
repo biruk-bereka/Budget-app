@@ -23,7 +23,7 @@ RSpec.describe Entity, type: :model do
     subject.amount = 0
     expect(subject).to_not be_valid
   end
-  
+
   it 'Name should be less than 250 characters, expected false' do
     t = 'This must be a very long text to test the max length of a post it is supouse to be less than 250'
     t1 = 'character, for that i am goint to improvise some custom text, and this test'
@@ -33,14 +33,13 @@ RSpec.describe Entity, type: :model do
     expect(subject).to_not be_valid
   end
 
-   it 'Both name and amount should be present' do
-      subject.name = nil
-      subject.amount = nil
-      expect(subject).to_not be_valid
-   end
-   
-   it 'Both name and amount are present' do
-      expect(subject).to be_valid
-   end
+  it 'Both name and amount should be present' do
+    subject.name = nil
+    subject.amount = nil
+    expect(subject).to_not be_valid
+  end
 
+  it 'Both name and amount are present' do
+    expect(subject).to be_valid
+  end
 end
