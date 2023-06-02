@@ -13,7 +13,7 @@ class EntitiesController < ApplicationController
 
   def create
     @entity = Entity.new(entity_params)
-    @group = Group.find(params[:group].to_i) 
+    @group = Group.find(params[:group].to_i)
     @entity.groups << @group
 
     authorize! :create, @entity
