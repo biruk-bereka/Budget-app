@@ -1,0 +1,30 @@
+<div class="bg-[#F5F6F8] h-screen text-2xl">
+  <div class="flex justify-between items-center text-white bg-[#3167A8] py-6 px-3 w-full m-0 mb-4">
+    <span class="material-symbols-outlined">
+     <%= link_to "arrow_back", root_path %>
+    </span>
+    <h2>LOGIN</h2>
+    <h3><%= link_to "SIGN UP", new_user_registration_path %></h3>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field bg-white">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'border-none focus:border-none text-2xl py-4' %>
+  </div>
+
+  <div class="field bg-white">
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: 'border-none text-2xl py-4' %>
+  </div>
+
+  <div class="actions m-3 text-center bg-[#3167A8] hover:bg-blue-600 text-white mb-4 py-4 px-4 rounded-lg">
+    <%= f.submit "LOG IN" %>
+  </div>
+<% end %>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+<%= link_to "Forgot your password?", new_password_path(resource_name), class: 'text-sm flex justify-center' %>
+<% end %>
+
+
+</div>
+

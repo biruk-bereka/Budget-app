@@ -1,0 +1,40 @@
+<div class="flex justify-between text-white bg-[#3167A8] py-6 px-3 w-full m-0 mb-3 text-2xl">
+   <span class="material-symbols-outlined">
+    <%= link_to "arrow_back", group_entities_path(@group.id)  %>
+   </span>
+   <h2>TRANSACTIONS</h2>
+   <h3><%= button_to "Logout", destroy_user_session_path, method: :delete %></h3>
+</div>
+<div class="flex flex-col min-h-screen">
+   <div class="flex-grow">
+     <div class="flex flex-col justify-start h-full">
+      <% if flash[:alert] %>
+        <div class="hide bg-red-500 p-4 text-white text-center">
+          <p><%= flash[:alert] %></p>
+        </div>
+      <% end %>
+       <%= form_with model: @entity, url: group_entities_path do |form| %>
+         <div class="mt-8">
+           <%= form.text_field :name, name: "entity[name]", class: "mx-3 mt-1 p-4 border rounded-md w-4/5", placeholder: "name" %>
+         </div>
+         <div class="mt-4">
+           <%= form.number_field :amount, name: "entity[amount]", class: "mx-3 mt-1 p-4 border rounded-md w-1/2", placeholder: "amount" %>
+         </div>
+         <div class="mx-3 mt-1 w-1/2 flex flex-col">
+          <label for="example-select">Select your categories:</label>
+          <select id="example-select" required name="group" class="form-select" multiple>
+            <% @groups.each do |group| %>
+            <option value="<%=group.id %>"><%=group.name %></option>
+            <% end %>
+          </select>
+         </div>
+         <div class="mt-auto p-4">
+           <%= form.submit "ADD TRANSACTION", class: "btn cursor-pointer w-full bg-blue-500 text-white font-bold py-4 px-4 rounded" %>
+         </div>
+       <% end %>
+     </div>
+   </div>
+ </div>
+ 
+
+ 
