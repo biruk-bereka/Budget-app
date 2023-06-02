@@ -113,7 +113,7 @@ RSpec.describe Entity, type: :system do
     fill_in 'name', with: 'Burger'
     fill_in 'amount', with: nil
     find('#example-select').find(:xpath, 'option[1]').select_option
-    
+
     click_button 'ADD TRANSACTION'
     expect(page).to have_content('Amount can\'t be blank')
   end
