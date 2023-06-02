@@ -35,7 +35,7 @@ RSpec.describe Entity, type: :system do
     fill_in 'name', with: 'Food'
     fill_in 'icon', with: 'https://image.png'
     click_button 'ADD CATEGORY'
-
+    sleep(5)
     # click on name of the category
     click_link 'Food'
     expect(page).to have_content('NO TRANSACTIONS YET!')
