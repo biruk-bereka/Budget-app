@@ -15,9 +15,9 @@
       <div class="flex">
         <img class="w-16 h-16 mr-2" src="<%= @group.icon %>" alt="group icon" />
         <div class="flex flex-col justify-around text-slate-400">
-          <h2>
-            <%= link_to entity.name, group_entity_path(@group.id, entity.id)%>
-          </h2>
+          <p>
+            <%= entity.name%>
+          </p>
           <p><%= entity.created_at.strftime('%d %b %Y') %></p>
         </div>
       </div>

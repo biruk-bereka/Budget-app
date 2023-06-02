@@ -24,7 +24,7 @@
 
 # 📖 Budget App <a name="about-project"></a>
 
-**Budget App** is Mobile web application where you can manage your budget
+**Budget App** is Mobile web application where you can manage your budget transactions.
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -124,8 +124,8 @@ open terminal and run
 rspec spec
 ```
 
-
 ### Deployment
+
   - [CashTrack](https://cashtrack-wsxf.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
