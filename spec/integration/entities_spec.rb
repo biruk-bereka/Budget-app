@@ -149,7 +149,7 @@ RSpec.describe Entity, type: :system do
     fill_in 'name', with: nil
     fill_in 'amount', with: 10.0
     click_button 'ADD TRANSACTION'
-    expect(page).to_not have_content('Name can\'t be blank')
+    expect(page).to have_content('Name can\'t be blank')
   end
 
   it 'should not add a new transaction with empty name and amount' do
