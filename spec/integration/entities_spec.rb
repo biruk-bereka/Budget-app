@@ -74,6 +74,7 @@ RSpec.describe Entity, type: :system do
     sleep(5)
     fill_in 'name', with: 'Burger'
     fill_in 'amount', with: 10.0
+    find('#example-select').find(:xpath, 'option[1]').select_option
     click_button 'ADD TRANSACTION'
     expect(page).to have_content('Burger')
   end
@@ -111,6 +112,8 @@ RSpec.describe Entity, type: :system do
     sleep(5)
     fill_in 'name', with: 'Burger'
     fill_in 'amount', with: nil
+    find('#example-select').find(:xpath, 'option[1]').select_option
+    
     click_button 'ADD TRANSACTION'
     expect(page).to have_content('Amount can\'t be blank')
   end
@@ -148,6 +151,7 @@ RSpec.describe Entity, type: :system do
     sleep(5)
     fill_in 'name', with: nil
     fill_in 'amount', with: 10.0
+    find('#example-select').find(:xpath, 'option[1]').select_option
     click_button 'ADD TRANSACTION'
     expect(page).to have_content('Name can\'t be blank')
   end
@@ -185,7 +189,9 @@ RSpec.describe Entity, type: :system do
     sleep(5)
     fill_in 'name', with: nil
     fill_in 'amount', with: nil
+    find('#example-select').find(:xpath, 'option[1]').select_option
     click_button 'ADD TRANSACTION'
+
     expect(page).to have_content('Name can\'t be blank, Amount can\'t be blank')
   end
 end
